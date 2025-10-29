@@ -1,15 +1,45 @@
 # fullstackarap
 
-To install dependencies:
+A full-stack application using gRPC and Protocol Buffers for client-server communication.
+
+## Architecture
+
+- **Backend**: Rust with gRPC server
+- **Frontend**: Nuxt.js/Vue.js with TypeScript
+- **Communication**: gRPC with Protocol Buffers
+
+## Prerequisites
+
+Install the following dependencies:
+
+- [Protocol Compiler (protoc)](https://grpc.io/docs/protoc-installation/)
+- [Buf CLI](https://buf.build/docs/installation)
+- [Rust](https://rustup.rs/)
+- [Bun](https://bun.sh)
+
+## Installation
 
 ```bash
 bun install
 ```
 
-To run:
+## Running the Application
+
+Start all services in development mode:
 
 ```bash
-bun run index.ts
+bun run dev
 ```
 
-This project was created using `bun init` in bun v1.1.38. [Bun](https://bun.sh) is a fast all-in-one JavaScript runtime.
+Or run services individually:
+
+```bash
+# Backend API server
+bun run dev:backend
+
+# gRPC server
+bun run dev:grpc
+
+# Frontend development server
+bun run dev:frontend
+```
