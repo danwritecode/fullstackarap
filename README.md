@@ -1,6 +1,10 @@
 # fullstackarap
 
-A full-stack application using gRPC and Protocol Buffers for client-server communication.
+The objective of this project is to show how to create a fullstack app with Rust, Nuxt, gRPC, and TypeScript.
+
+The pain of keeping types in sync between frontend and backend is a problem that I personally wanted to solve. I'm not a fan of "isomorphic" javascript frameworks (Next, Nuxt), mainly because I don't want to write servers in Javascript. 
+
+This allows me to write the backend in Rust and the frontend in Nuxt without sacrificing type safety and ergonomics.
 
 ## Architecture
 
