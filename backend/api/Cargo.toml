@@ -1,0 +1,24 @@
+[package]
+name = "api"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.6"
+anyhow = { workspace = true }
+dotenv = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tokio = { workspace = true }
+prost = "0.14.1"
+tonic = "0.14.2"
+tonic-prost = "0.14.2"
+tonic-web = "0.14.2"
+tower-http = { version = "0.6.6", features = ["cors"] }
+
+[build-dependencies]
+tonic-prost-build = "0.14.2"
+
+[[bin]] # Bin to run the HelloWorld gRPC server
+name = "grpc-server"
+path = "src/grpc.rs"
