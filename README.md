@@ -8,9 +8,19 @@ This allows me to write the backend in Rust and the frontend in Nuxt without sac
 
 ## Architecture
 
-- **Backend**: Rust with gRPC server
-- **Frontend**: Nuxt.js/Vue.js with TypeScript
+- **Backend**: Rust with gRPC server using [Tonic](https://github.com/hyperium/tonic) and [Prost](https://github.com/tokio-rs/prost)
+- **Frontend**: Nuxt.js/Vue.js with TypeScript using [ConnectRPC](https://connectrpc.com/)
 - **Communication**: gRPC with Protocol Buffers
+
+### Backend Stack
+- **Tonic**: A gRPC implementation for Rust built on async/await
+- **Prost**: Protocol buffer implementation for Rust with serialization support
+- **Tonic-Web**: Enables gRPC-Web for browser compatibility
+
+### Frontend Stack
+- **ConnectRPC**: Type-safe gRPC-Web client for TypeScript
+- **Buf**: Protocol buffer toolchain for code generation
+- **Generated TypeScript types**: Automatically generated from `.proto` files
 
 ## Prerequisites
 
