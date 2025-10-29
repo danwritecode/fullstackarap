@@ -1,11 +1,16 @@
 <template>
-  <div>
+  <div class="p-20">
     <button 
       type="button" 
+      class="p-2 border border-gray-900"
       @click="sayHello('Dan')"
     >
       Say hello
     </button>
+
+    <div class="bg-red-500/50">
+      {{ message }}
+    </div>
   </div>
 </template>
 
@@ -15,14 +20,16 @@ import { createClient } from "@connectrpc/connect";
 import { Greeter } from "./gen/helloworld_pb";
 
 const transport = createGrpcWebTransport({
-  baseUrl: "http://localhost:50051",
+  baseUrl: "/rpc",
 });
 
 const client = createClient(Greeter, transport);
+const message = ref("");
 
 async function sayHello(name: string) {
-  const { message } = await client.sayHello({ name: name, message: "Hello from connectrpc" });
+  const res = await client.sayHello({ name: name, message: "Hello from grpc-web" });
 
-  console.log(message)
+  message.value = res.message
 }
+
 </script>

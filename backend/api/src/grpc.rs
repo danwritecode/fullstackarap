@@ -38,14 +38,8 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let addr = "[::1]:50051".parse()?;
     let greeter = MyGreeter::default();
 
-    let cors = CorsLayer::new()
-        .allow_methods([Method::GET, Method::POST])
-        .allow_headers(Any)
-        .allow_origin(Any);
-
     Server::builder()
         .accept_http1(true)
-        .layer(cors)
         .layer(GrpcWebLayer::new())
         .add_service(GreeterServer::new(greeter))
         .serve(addr)

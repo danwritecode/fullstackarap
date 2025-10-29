@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -8,15 +10,20 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxt/fonts',
     '@nuxt/icon',
-    '@nuxt/eslint'
+    '@nuxt/eslint',
   ],
+
+  vite: {
+    plugins: [
+      tailwindcss()
+    ],
+  },
+
+  css: ['~/assets/tailwind.css'],
 
   nitro: {
     routeRules: {
-      // forward everything under /rpc to your tonic server
       '/rpc/**': { proxy: 'http://localhost:50051/**' },
-      // if your tonic server mounts gRPC at root (no /rpc prefix), use:
-      // '/rpc/**': { proxy: 'http://localhost:8080/**' },
     },
   },
 })
