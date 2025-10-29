@@ -10,7 +10,7 @@ import type { Message } from "@bufbuild/protobuf";
  * Describes the file helloworld.proto.
  */
 export const file_helloworld: GenFile = /*@__PURE__*/
-  fileDesc("ChBoZWxsb3dvcmxkLnByb3RvEgpoZWxsb3dvcmxkIhwKDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEgASgJIh0KCkhlbGxvUmVwbHkSDwoHbWVzc2FnZRgBIAEoCTJHCgdHcmVldGVyEjwKCFNheUhlbGxvEhguaGVsbG93b3JsZC5IZWxsb1JlcXVlc3QaFi5oZWxsb3dvcmxkLkhlbGxvUmVwbHliBnByb3RvMw");
+  fileDesc("ChBoZWxsb3dvcmxkLnByb3RvEgpoZWxsb3dvcmxkIi0KDEhlbGxvUmVxdWVzdBIMCgRuYW1lGAEgASgJEg8KB21lc3NhZ2UYAiABKAkiHQoKSGVsbG9SZXBseRIPCgdtZXNzYWdlGAEgASgJMkcKB0dyZWV0ZXISPAoIU2F5SGVsbG8SGC5oZWxsb3dvcmxkLkhlbGxvUmVxdWVzdBoWLmhlbGxvd29ybGQuSGVsbG9SZXBseWIGcHJvdG8z");
 
 /**
  * @generated from message helloworld.HelloRequest
@@ -20,6 +20,11 @@ export type HelloRequest = Message<"helloworld.HelloRequest"> & {
    * @generated from field: string name = 1;
    */
   name: string;
+
+  /**
+   * @generated from field: string message = 2;
+   */
+  message: string;
 };
 
 /**

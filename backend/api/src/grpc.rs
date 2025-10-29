@@ -19,12 +19,13 @@ impl Greeter for MyGreeter {
         &self,
         request: Request<HelloRequest>,
     ) -> Result<Response<HelloReply>, Status> {
-        println!("Got a request: {:?}", request);
+        let request = request.into_inner();
 
         let reply = HelloReply {
             message: format!(
-                "Hello there {} from a rust gRPC server!",
-                request.into_inner().name
+                "Hello there {} from a rust gRPC server! Here is the secret message: {}",
+                request.name,
+                request.message
             ),
         };
 

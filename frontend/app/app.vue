@@ -21,7 +21,7 @@ const transport = createGrpcWebTransport({
 const client = createClient(Greeter, transport);
 
 async function sayHello(name: string) {
-  const { message } = await client.sayHello({ name: name })
+  const { message } = await client.sayHello({ name: name, message: "Hello from connectrpc" });
 
   console.log(message)
 }
