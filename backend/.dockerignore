@@ -1,0 +1,34 @@
+# Rust build artifacts
+target/
+**/*.rs.bk
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Git
+.git/
+.gitignore
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Documentation
+*.md
+!README.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node modules (if any)
+node_modules/
+
+# Test coverage
+coverage/
+*.profraw

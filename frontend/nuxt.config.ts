@@ -23,7 +23,7 @@ export default defineNuxtConfig({
 
   nitro: {
     routeRules: {
-      '/rpc/**': { proxy: 'http://localhost:50051/**' },
+      '/rpc/**': { proxy: `${process.env.BACKEND_URL || 'http://localhost:50051'}/**` },
     },
   },
 })

@@ -1,0 +1,52 @@
+services:
+  # Backend gRPC Server (Rust)
+  lifemanual-backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: lifemanual-backend
+    ports:
+      - "50051:50051"
+    environment:
+      - RUST_LOG=info
+    networks:
+      - lifemanual-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "grpc_health_probe", "-addr=:50051"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Nuxt Application (Bun)
+  lifemanual-frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+      args:
+        BACKEND_URL: http://lifemanual-backend:50051
+    container_name: lifemanual-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    depends_on:
+      - lifemanual-backend
+    networks:
+      - lifemanual-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  lifemanual-network:
+    driver: bridge
+
+# Optional: Add volumes for persistence if needed
+# volumes:
+#   backend-data:
